@@ -1,0 +1,45 @@
+use piston_window::*;
+mod game;
+
+const WHITE: [f32; 4] = [1.0, 1.0, 1.0, 1.0];
+const WIDTH_: f64 = 680.0;
+const HIGHT_: f64 = 680.0;
+
+fn main() {
+    let open_gl = OpenGL::V3_2;
+
+    let mut window: PistonWindow = WindowSettings::new("Naughts and crosses", [WIDTH_, HIGHT_])
+        .exit_on_esc(true)
+        .resizable(false)
+        .samples(4)
+        .graphics_api(open_gl)
+        .build()
+        .unwrap();
+
+    let glyphs = window
+        .load_font("assets/Arial.ttf").unwrap();
+
+    let mut apl = game::App::new(WIDTH_, HIGHT_, glyphs);
+    let mut position = [0.0, 0.0];
+
+
+    while let Some(event) = window.next() {
+        window.draw_2d(&event, |c, g, d| {
+            clear(WHITE, g);
+            apl.draw(&c, g, d);
+        });
+
+        if let Some(pos) = event.mouse_cursor_args()
+        {
+            position = pos;
+        }
+        
+        if let Some(Button::Mouse(MouseButton::Left)) = event.press_args() {
+            apl.on_click(position);
+        }
+
+        event.update(|arg| {
+            apl.update(arg.dt, position);
+        });
+    }
+}
