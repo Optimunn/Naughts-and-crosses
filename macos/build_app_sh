@@ -5,6 +5,15 @@ BINARY_PATH="../target/release/naughts_and_crosses"
 ICON_PATH="./icon/nac_icon.png"   
 OUTPUT_DIR="./"
 
+cargo_check() {
+    if cargo --version > /dev/null 2>&1; then
+        echo "Cargo OK."
+    else
+        echo "Error: Cargo is not installed!"
+        exit 1
+    fi
+}
+
 APP_DIR="$OUTPUT_DIR/$APP_NAME.app"
 
 if [ "$1" = "--clear" ] || [ "$1" = "-c" ]; then
@@ -22,12 +31,18 @@ elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     echo "  (no options)   Build app and activate it"
     exit 0
 elif [ "$1" = "--release" ]; then
+    cargo_check
     echo "Build release binary..."
     cargo build --release
     exit 0
 elif [ "$1" = "--all" ]; then
+    cargo_check
     echo "Build release application..."
     cargo build --release
+elif [ "$1" != "" ]; then
+    echo "Unknown option: $1"
+    echo "Use --help or -h for help"
+    exit 1
 fi
 
 check_file_exists() {
