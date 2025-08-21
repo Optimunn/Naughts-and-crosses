@@ -30,14 +30,14 @@ fn main() {
     let glyphs = window
         .load_font(font_path).unwrap();
 
-    let mut apl = game::App::new(WIDTH_, HIGHT_, glyphs);
+    let mut application = game::App::new(WIDTH_, HIGHT_, glyphs);
     let mut position = [0.0, 0.0];
 
 
     while let Some(event) = window.next() {
         window.draw_2d(&event, |c, g, d| {
             clear(WHITE, g);
-            apl.draw(&c, g, d);
+            application.draw(&c, g, d);
         });
 
         if let Some(pos) = event.mouse_cursor_args()
@@ -46,11 +46,11 @@ fn main() {
         }
         
         if let Some(Button::Mouse(MouseButton::Left)) = event.press_args() {
-            apl.on_click(position);
+            application.on_click(position);
         }
 
         event.update(|arg| {
-            apl.update(arg.dt, position);
+            application.update(arg.dt, position);
         });
     }
 }

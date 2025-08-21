@@ -4,9 +4,11 @@ use rand;
 const BLUE: [f32; 4] = [0.0, 0.0, 0.8, 1.0];
 const GRAY: [f32; 4] = [0.7, 0.7, 0.7, 0.8];
 const YELLOW: [f32; 4] = [0.98, 0.98, 0.0, 1.0];
+
 const RED: [f32; 4] = [0.9, 0.0, 0.0, 1.0];
 const LOW_RED: [f32; 4] = [0.9, 0.0, 0.0, 0.3];
 const MEDIUM_RED: [f32; 4] = [0.9, 0.0, 0.0, 0.6];
+
 const GREEN: [f32; 4] = [0.0, 0.7, 0.0, 1.0];
 const LOW_GREEN: [f32; 4] = [0.0, 0.7, 0.0, 0.3];
 const MEDIUM_GREEN: [f32; 4] = [0.0, 0.7, 0.0, 0.6];
