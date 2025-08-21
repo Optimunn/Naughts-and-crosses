@@ -1,4 +1,6 @@
 use piston_window::*;
+#[cfg(not(debug_assertions))]
+use std::env;
 mod game;
 
 const WHITE: [f32; 4] = [1.0, 1.0, 1.0, 1.0];
@@ -16,8 +18,19 @@ fn main() {
         .build()
         .unwrap();
 
+    #[cfg(debug_assertions)]
     let glyphs = window
         .load_font("assets/Arial.ttf").unwrap();
+
+    #[cfg(not(debug_assertions))]
+    let exe_path = env::current_exe().unwrap();
+    #[cfg(not(debug_assertions))]
+    let exe_dir = exe_path.parent().unwrap();
+    #[cfg(not(debug_assertions))]
+    let font_path = exe_dir.join("../Assets/Arial.ttf");
+    #[cfg(not(debug_assertions))]
+    let glyphs = window
+        .load_font(font_path).unwrap();
 
     let mut apl = game::App::new(WIDTH_, HIGHT_, glyphs);
     let mut position = [0.0, 0.0];

@@ -1,6 +1,7 @@
 [package]
-name = "snake"
+name = "naughts_and_crosses"
 version = "0.1.0"
+authors = ["Alex <https://github.com/Optimunn>"]
 edition = "2021"
 
 [dependencies]
