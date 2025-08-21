@@ -5,6 +5,11 @@ Alfa version!
 ![Noughts and crosses](/pictures/n_and_c.png "Noughts and crosses")
 
 ---
+#### How to play?
+
+To play use trackpad or mouse and click to empty cells.
+
+---
 #### Build from source (MacOS)
 
 ***First way:***

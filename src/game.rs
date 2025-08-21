@@ -1,17 +1,17 @@
 use piston_window::*;
 use rand;
 
-const BLUE: [f32; 4] = [0.0, 0.0, 1.0, 1.0];
-const GRAY: [f32; 4] = [0.741, 0.765, 0.78, 0.8];
-const YELLOW: [f32; 4] = [0.95, 0.95, 0.0, 1.0];
-const RED: [f32; 4] = [1.0, 0.0, 0.0, 1.0];
-const LOW_RED: [f32; 4] = [1.0, 0.0, 0.0, 0.3];
-const MEDIUM_RED: [f32; 4] = [1.0, 0.0, 0.0, 0.6];
-const GREEN: [f32; 4] = [0.2, 1.0, 0.2, 1.0];
-const LOW_GREEN: [f32; 4] = [0.2, 1.0, 0.2, 0.3];
-const MEDIUM_GREEN: [f32; 4] = [0.2, 1.0, 0.2, 0.6];
+const BLUE: [f32; 4] = [0.0, 0.0, 0.8, 1.0];
+const GRAY: [f32; 4] = [0.7, 0.7, 0.7, 0.8];
+const YELLOW: [f32; 4] = [0.98, 0.98, 0.0, 1.0];
+const RED: [f32; 4] = [0.9, 0.0, 0.0, 1.0];
+const LOW_RED: [f32; 4] = [0.9, 0.0, 0.0, 0.3];
+const MEDIUM_RED: [f32; 4] = [0.9, 0.0, 0.0, 0.6];
+const GREEN: [f32; 4] = [0.0, 0.7, 0.0, 1.0];
+const LOW_GREEN: [f32; 4] = [0.0, 0.7, 0.0, 0.3];
+const MEDIUM_GREEN: [f32; 4] = [0.0, 0.7, 0.0, 0.6];
 
-const END_LINE: f64 = 30.0;
+const END_LINE: f64 = 40.0;
 const DEPTH: f64 = 20.0;
 const FIGURE_RADIUS: f64 = 10.0;
 
@@ -144,7 +144,7 @@ impl App {
         }
         let _ = text(current_color, 96, "Game Over!", &mut self.glyphs, con.transform.trans(20.0, 100.0), g);
         let _ = text(current_color, 96, win, &mut self.glyphs, con.transform.trans(20.0, 200.0), g);
-        let _ = text(current_color, 32, "Click to restart", &mut self.glyphs, con.transform.trans(20.0, 400.0), g);
+        let _ = text(current_color, 32, "Click to play again", &mut self.glyphs, con.transform.trans(20.0, self.height - 20.0), g);
 
         self.glyphs.factory.encoder.flush(d);
     }

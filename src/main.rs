@@ -8,13 +8,11 @@ const WIDTH_: f64 = 680.0;
 const HIGHT_: f64 = 680.0;
 
 fn main() {
-    let open_gl = OpenGL::V3_2;
-
     let mut window: PistonWindow = WindowSettings::new("Naughts and crosses", [WIDTH_, HIGHT_])
         .exit_on_esc(true)
         .resizable(false)
         .samples(4)
-        .graphics_api(open_gl)
+        .graphics_api(OpenGL::V3_2)
         .build()
         .unwrap();
 
