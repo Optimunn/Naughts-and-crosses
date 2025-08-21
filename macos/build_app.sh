@@ -2,7 +2,7 @@
 
 APP_NAME="Naughts and crosses"
 BINARY_PATH="../target/release/naughts_and_crosses"
-ICON_PATH="./nac_icon.png"   
+ICON_PATH="./icon/nac_icon.png"   
 OUTPUT_DIR="./"
 
 APP_DIR="$OUTPUT_DIR/$APP_NAME.app"
