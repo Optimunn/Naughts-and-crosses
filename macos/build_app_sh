@@ -78,7 +78,7 @@ mkdir -p "$MACOS_DIR"
 mkdir -p "$RESOURCES_DIR"
 mkdir -p "$ASSETS_DIR"
 
-FONT_PATH="../assets/Arial.ttf"
+FONT_PATH="../assets/Font.ttf"
 check_file_exists "$FONT_PATH"
 
 echo "Copying files..."
@@ -87,7 +87,7 @@ chmod +x "$MACOS_DIR/$APP_NAME"
 
 cp "$ICON_PATH" "$RESOURCES_DIR/AppIcon.png"
 
-cp "$FONT_PATH" "$ASSETS_DIR/Arial.ttf"
+cp "$FONT_PATH" "$ASSETS_DIR/Font.ttf"
 
 echo "Creating Info.plist..."
 cat > "$CONTENTS_DIR/Info.plist" << EOF

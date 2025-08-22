@@ -18,14 +18,14 @@ fn main() {
 
     #[cfg(debug_assertions)]
     let glyphs = window
-        .load_font("assets/Arial.ttf").unwrap();
+        .load_font("assets/Font.ttf").unwrap();
 
     #[cfg(not(debug_assertions))]
     let exe_path = env::current_exe().unwrap();
     #[cfg(not(debug_assertions))]
     let exe_dir = exe_path.parent().unwrap();
     #[cfg(not(debug_assertions))]
-    let font_path = exe_dir.join("../Assets/Arial.ttf");
+    let font_path = exe_dir.join("../Assets/Font.ttf");
     #[cfg(not(debug_assertions))]
     let glyphs = window
         .load_font(font_path).unwrap();
